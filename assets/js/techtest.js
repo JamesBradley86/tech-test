@@ -18,16 +18,30 @@ TechTest.init = function() {
     // validate/update on text input blur/enter keypress
     $(':text').keypress(function(e) {
         
-        if(e.which == 13) {
-            $(this).blur();
+        if(e.which == 13) { // enter key pressed
+            $(this).blur(); // trigger blur event
         }
+        
+    }).focus(function() {
+        
+        // store value on focus so we can check if it's changed on blur
+        $(this).data('val', $(this).val());
         
     }).blur(function() {
         
+        // only update if value has changed
+        if($(this).val() == $(this).data('val')) return;
+        
+        // get parent table row
         var $row = $(this).closest('tr');
+        
+        // get first name from input
         var firstName = $('.firstname', $row).val();
+        
+        // get surname from input
         var surname = $('.surname', $row).val();
         
+        // create person object for validation/update
         var person = {
             firstName: firstName,
             surname: surname,
@@ -35,13 +49,18 @@ TechTest.init = function() {
         };
         
         if(TechTest.validatePerson(person, $row)) {
+            // passed validation
             
+            // do update
             TechTest.updatePerson(person, function() {
+                
+                // callback function
                 var $success = $('<span class="success">Updated!</span>');
                 setTimeout(function() { 
                     $success.fadeOut(); 
-                }, 2000);
-
+                }, 2000); // fade out after 2 seconds
+                
+                // append to feedback table cell
                 $('.feedback', $row).html($success);                
             });
 
@@ -75,6 +94,7 @@ TechTest.updatePerson = function(person, callback) {
 };
 
 TechTest.validationError = function(error, $row) {
+    // show error message
     $('.feedback', $row).html('<span class="error">' + error + '</span>');
 };
 
