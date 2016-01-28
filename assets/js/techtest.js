@@ -36,8 +36,6 @@ TechTest.init = function() {
         
         if(TechTest.validatePerson(person, $row)) {
             
-            // do the shizzle
-            
             TechTest.updatePerson(person, function() {
                 var $success = $('<span class="success">Updated!</span>');
                 setTimeout(function() { 
