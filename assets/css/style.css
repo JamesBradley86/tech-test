@@ -1,0 +1,23 @@
+* {
+  margin: 0;
+  padding: 0; }
+
+body {
+  font-family: 'Arial', sans-serif;
+  padding: 20px; }
+
+input[type='text'] {
+  border: 1px #ccc solid;
+  padding: 10px; }
+
+input[type='text']:focus {
+  border-color: #3498db;
+  box-shadow: 0 0 1px #3498db; }
+
+input[type='submit'] {
+  padding: 20px; }
+
+th {
+  text-align: left; }
+
+/*# sourceMappingURL=style.css.map */

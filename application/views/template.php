@@ -6,6 +6,8 @@
     <meta charset="utf-8">
 
     <title>Sky Betting &amp; Gaming Technical Test</title>
+    
+    <link rel="stylesheet" href="<?php echo base_url('assets/css/style.css'); ?>" />
 
     <!--[if lt IE 9]>
     <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>

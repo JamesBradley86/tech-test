@@ -1,0 +1,29 @@
+$colour-highlight: #3498db;
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    padding: 20px;
+}
+
+input[type='text'] {
+    border: 1px #ccc solid;
+    padding: 10px;
+}
+
+input[type='text']:focus {
+    border-color: $colour-highlight;
+    box-shadow: 0 0 1px $colour-highlight;
+}
+
+input[type='submit'] {
+    padding: 20px;
+}
+
+th {
+    text-align: left;
+}
