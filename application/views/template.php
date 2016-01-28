@@ -14,18 +14,23 @@
 
 <body>
     
-    <form>
+    <form action="<?php echo base_url('home/update'); ?>" method="post">
         <table>
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
             </tr>
-            <?php foreach($people as $person): ?>
+            <?php foreach($people as $person): 
+                $x = 0;
+            ?>
             <tr>
-                <td><input type="text" name="people[][firstname]" value="<?php echo $person[0]; ?>" /></td>
-                <td><input type="text" name="people[][surname]" value="<?php echo $person[1]; ?>" /></td>
+                <td><input type="text" name="people[][firstname]" value="<?php echo $person[0]; // first name ?>" /></td>
+                <td><input type="text" name="people[][surname]" value="<?php echo $person[1]; // surname ?>" /></td>
             </tr>
-            <?php endforeach; ?>
+            <?php 
+                $x++;
+            endforeach; 
+            ?>
         </table>
         <input type="submit" value="OK" />
     </form>
