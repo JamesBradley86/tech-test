@@ -2,7 +2,7 @@ var TechTest = TechTest || {};
 
 TechTest.init = function() {
     
-    // hide submit button - we'll update on input blur
+    // hide submit button - we'll update on input blur/enter keypress
     $(':submit').hide();
     
     // prevent enter from submitting form
@@ -15,8 +15,14 @@ TechTest.init = function() {
        $(this).append('<td class="feedback"></td>');                  
     });
     
-    // validate/update on text input blur
-    $(':text').blur(function() {
+    // validate/update on text input blur/enter keypress
+    $(':text').keypress(function(e) {
+        
+        if(e.which == 13) {
+            $(this).blur();
+        }
+        
+    }).blur(function() {
         
         var $row = $(this).closest('tr');
         var firstName = $('.firstname', $row).val();
@@ -56,12 +62,14 @@ TechTest.updatePerson = function(person, callback) {
             'surname' : person.surname
         },
         cache: false,
-        type: 'GET',
+        type: 'POST',
         success: function (response) {
             if(callback) callback();
+            return true;
         },
         error: function (xhr) {
             alert('Update failed.');
+            return false;
         }
     }); 
     

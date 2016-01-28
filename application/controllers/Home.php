@@ -53,8 +53,8 @@ class Home extends CI_Controller {
     
     public function update_person($index) {
         
-        $first_name = $this->input->get('first_name');
-        $surname = $this->input->get('surname');
+        $first_name = $this->input->post('first_name');
+        $surname = $this->input->post('surname');
         $this->person_model->update_person($first_name, $surname, $index);    
             
     }
