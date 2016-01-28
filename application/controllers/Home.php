@@ -45,6 +45,7 @@ class Home extends CI_Controller {
         // pass to person model to update csv file
         $this->person_model->update_people($people);
         
+        $this->data['notify'] = 'Database updated.';
         // show home page
         $this->index();
         
