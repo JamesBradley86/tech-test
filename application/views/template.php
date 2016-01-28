@@ -13,32 +13,19 @@
 </head>
 
 <body>
+    
     <form>
         <table>
             <tr>
                 <th>First name</th>
                 <th>Last name</th>
             </tr>
+            <?php foreach($people as $person): ?>
             <tr>
-                <td><input type="text" name="people[][firstname]" value="Jeff" /></td>
-                <td><input type="text" name="people[][surname]" value="Stelling" /></td>
+                <td><input type="text" name="people[][firstname]" value="<?php echo $person[0]; ?>" /></td>
+                <td><input type="text" name="people[][surname]" value="<?php echo $person[1]; ?>" /></td>
             </tr>
-            <tr>
-                <td><input type="text" name="people[][firstname]" value="Chris" /></td>
-                <td><input type="text" name="people[][surname]" value="Kamara" /></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="people[][firstname]" value="Alex" /></td>
-                <td><input type="text" name="people[][surname]" value="Hammond" /></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="people[][firstname]" value="Jim" /></td>
-                <td><input type="text" name="people[][surname]" value="White" /></td>
-            </tr>
-            <tr>
-                <td><input type="text" name="people[][firstname]" value="Natalie" /></td>
-                <td><input type="text" name="people[][surname]" value="Sawyer" /></td>
-            </tr>
+            <?php endforeach; ?>
         </table>
         <input type="submit" value="OK" />
     </form>
