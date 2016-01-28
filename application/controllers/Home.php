@@ -38,37 +38,14 @@ class Home extends CI_Controller {
             $firstname = $person[0]['firstname'];
             $surname = $person[1]['surname'];
             
-            $people[] = (object) array('firstname' => $firstname, 'surname' => $surname);
+            $people[] = array($firstname, $surname);
         }
         
-        /* (now we have something like this...)
-        
-        array (size=7)
-          0 => 
-            object(stdClass)[15]
-              public 'firstname' => string 'Jeff' (length=4)
-              public 'surname' => string 'Stelling' (length=8)
-          1 => 
-            object(stdClass)[16]
-              public 'firstname' => string 'Chris' (length=5)
-              public 'surname' => string 'Kamara' (length=6)
-          2 => 
-            object(stdClass)[17]
-              public 'firstname' => string 'Alex' (length=4)
-              public 'surname' => string 'Hammond' (length=7)
-          3 => 
-            object(stdClass)[18]
-              public 'firstname' => string 'Jim' (length=3)
-              public 'surname' => string 'White' (length=5)
-          4 => 
-            object(stdClass)[19]
-              public 'firstname' => string 'Natalie' (length=7)
-              public 'surname' => string 'Sawyer' (length=6)
-        */
-        
-        // pass to model to update csv file
-        
+
+        // pass to person model to update csv file
         $this->person_model->update_people($people);
+        
+        // show home page
         $this->index();
         
     }

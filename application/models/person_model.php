@@ -10,11 +10,13 @@ class Person_model extends CI_Model {
         $people = array();
         
         $path = $this->config->item('people_csv_file_path');
-        $f = @fopen($path, 'r');
+        $fp = @fopen($path, 'r');
         
-        while($person = fgetcsv($f)) {
+        while($person = fgetcsv($fp)) {
             $people[] = $person;
         }
+        
+        fclose($fp);
         
         return $people;
         
@@ -22,13 +24,14 @@ class Person_model extends CI_Model {
     
     public function update_people($people) {
         
-        $data = '';
-        foreach($people as $person) {
-            $data .= $person->firstname . ',' . $person->surname . "\r\n";
-        }
-        
         $path = $this->config->item('people_csv_file_path');
-        file_put_contents($path, $data);
+        $fp = fopen($path, 'w');
+
+        foreach ($people as $person) {
+            fputcsv($fp, $person);
+        }
+
+        fclose($fp);
         
     }
 
