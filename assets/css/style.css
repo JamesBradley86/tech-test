@@ -20,7 +20,7 @@ input[type='submit'] {
 
 table {
   width: 100%;
-  max-width: 800px; }
+  max-width: 1000px; }
 
 th {
   text-align: left; }
@@ -32,5 +32,14 @@ td {
   padding: 10px;
   margin-bottom: 20px;
   background: #ddd; }
+
+.error, .success {
+  padding-left: 20px; }
+
+.error {
+  color: #f00; }
+
+.success {
+  color: #458B00; }
 
 /*# sourceMappingURL=style.css.map */

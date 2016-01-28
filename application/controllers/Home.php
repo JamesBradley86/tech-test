@@ -21,8 +21,8 @@ class Home extends CI_Controller {
 		$this->load->view('template', $this->data);
 	}
     
-    // update all names
-    public function update() {
+    // update all names (non-js fallback)
+    public function update_all() {
         
         // get people array from submitted form 
         $people_raw = $this->input->post('people');
@@ -50,4 +50,13 @@ class Home extends CI_Controller {
         $this->index();
         
     }
+    
+    public function update_person($index) {
+        
+        $first_name = $this->input->get('first_name');
+        $surname = $this->input->get('surname');
+        $this->person_model->update_person($first_name, $surname, $index);    
+            
+    }
+    
 }

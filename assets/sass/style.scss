@@ -1,5 +1,7 @@
 $colour-highlight: #3498db;
 $colour-notify: #ddd;
+$colour-error: #f00;
+$colour-success: #458B00;
 
 * {
     margin: 0;
@@ -28,7 +30,7 @@ input[type='submit'] {
 
 table {
     width: 100%;
-    max-width: 800px;
+    max-width: 1000px;
 }
 
 th {
@@ -43,4 +45,16 @@ td {
     padding: 10px;
     margin-bottom: 20px;
     background: $colour-notify;
+}
+
+.error, .success {
+    padding-left: 20px;
+}
+
+.error {
+    color: $colour-error;
+}
+
+.success {
+    color: $colour-success;
 }
