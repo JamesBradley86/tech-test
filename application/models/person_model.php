@@ -10,7 +10,7 @@ class Person_model extends CI_Model {
     public function get_people() {
         
         $fp = @fopen($this->csv_path, 'r');
-        if(!$fp) die('Could not find CSV file at ' . $this->csv_path);
+        if(!$fp) show_error('Could not find CSV file at ' . $this->csv_path);
         
         $people = array();
 
@@ -27,7 +27,7 @@ class Person_model extends CI_Model {
     public function update_people($people) {
         
         $fp = @fopen($this->csv_path, 'w');
-        if(!$fp) die('Could not find CSV file at ' . $this->csv_path);
+        if(!$fp) show_error('Could not find CSV file at ' . $this->csv_path);
         
         foreach ($people as $person) {
             fputcsv($fp, $person);
@@ -41,7 +41,7 @@ class Person_model extends CI_Model {
         
         $people = $this->get_people();
         if(!array_key_exists($index, $people)) {
-            die('Index out of range.');
+            show_error('Index out of range.');
         }
     
         $people[$index] = array($first_name, $surname);
